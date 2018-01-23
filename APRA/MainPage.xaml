@@ -1,0 +1,18 @@
+﻿<Page
+    x:Class="APRA.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:APRA"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid x:Name="gridPORT" BorderThickness="10" BorderBrush="Black" CornerRadius="10">
+            <Image x:Name="image" HorizontalAlignment="Center" Margin="50,0" VerticalAlignment="Center" Source="Assets/BB_Apra_Icon.png" />
+        </Grid>
+        <Grid x:Name="gridHORIZ" Visibility="Collapsed">
+            <Image x:Name="image_H" HorizontalAlignment="Center" Margin="140,82,140,0" VerticalAlignment="Center" Source="images/Store_Logo_800.png" Height="278" />
+        </Grid>
+    </Grid>
+</Page>
