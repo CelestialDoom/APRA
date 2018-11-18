@@ -1,13 +1,10 @@
-﻿' The Blank Page item template is documented at http://go.microsoft.com/fwlink/?LinkId=234238
+﻿' The Blank Page item template is documented at https://go.microsoft.com/fwlink/?LinkId=234238
 
 Imports Windows.Phone.UI.Input
-Imports Windows.System.Display
-Imports Windows.UI.Popups
-Imports Windows.Devices.Sensors
 ''' <summary>
 ''' An empty page that can be used on its own or navigated to within a Frame.
 ''' </summary>
-Public NotInheritable Class BlankPage1
+Public NotInheritable Class NewPlayer
     Inherits Page
 
     Public _displayRequest As Windows.System.Display.DisplayRequest
@@ -46,7 +43,7 @@ Public NotInheritable Class BlankPage1
         RPD()
     End Sub
 
-    Private Sub BlankPage1_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
+    Private Sub NewPlayer_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
         ActivateDisplay()
         AddHandler HardwareButtons.BackPressed, AddressOf BackPressed
         listBox.ItemsSource = LoadComboBoxData()
@@ -69,15 +66,15 @@ Public NotInheritable Class BlankPage1
         If IS_PLAYING Then
             btnPlayer.Content = ""
             IS_PLAYING = False
-            mediaElement.AutoPlay = False
-            mediaElement.Source = New Uri(STREAM_URL)
-            mediaElement.Stop()
+            MediaElement.AutoPlay = False
+            MediaElement.Source = New Uri(STREAM_URL)
+            MediaElement.Stop()
         Else
             btnPlayer.Content = ""
             IS_PLAYING = True
-            mediaElement.AutoPlay = True
-            mediaElement.Source = New Uri(STREAM_URL)
-            mediaElement.Play()
+            MediaElement.AutoPlay = True
+            MediaElement.Source = New Uri(STREAM_URL)
+            MediaElement.Play()
         End If
     End Sub
 
@@ -161,11 +158,11 @@ Public NotInheritable Class BlankPage1
                         End If
                         If NEW_STATION Then
                             If IS_PLAYING Then
-                                mediaElement.Source = New Uri(STREAM_URL)
-                                mediaElement.Play()
+                                MediaElement.Source = New Uri(STREAM_URL)
+                                MediaElement.Play()
                                 NEW_STATION = False
                             Else
-                                mediaElement.Stop()
+                                MediaElement.Stop()
                                 NEW_STATION = False
                             End If
                         End If
@@ -193,7 +190,6 @@ Public NotInheritable Class BlankPage1
 
     Sub DisplayInfo(ByVal title As String, ByVal info As String)
         MyScrollViewer.ChangeView(Nothing, 0, Nothing, True)
-
         gridINFO.Visibility = Visibility.Visible
         txtInfoTitle.Text = title
         txtInfoInfo.Text = info
@@ -231,12 +227,9 @@ Public NotInheritable Class BlankPage1
     End Sub
 
     Private Async Sub OpenInBrowser(ByVal k As String)
-
         Dim uri As New Uri(k)
-
         ' Launch the URI
         Dim success = Await Windows.System.Launcher.LaunchUriAsync(uri)
-
         If success Then
             ' URI launched
         Else

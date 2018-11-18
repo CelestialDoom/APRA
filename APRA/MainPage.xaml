@@ -10,6 +10,7 @@
     <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
         <Grid x:Name="gridPORT" BorderThickness="10" BorderBrush="Black" CornerRadius="10">
             <Image x:Name="image" HorizontalAlignment="Center" Margin="50,0" VerticalAlignment="Center" Source="Assets/BB_Apra_Icon.png" />
+            <ProgressRing x:Name="ProgRing" HorizontalAlignment="Center" Margin="130,445,130,0" VerticalAlignment="Top" Width="100" Height="100" Foreground="#FF52A6BE"/>
         </Grid>
         <Grid x:Name="gridHORIZ" Visibility="Collapsed">
             <Image x:Name="image_H" HorizontalAlignment="Center" Margin="140,82,140,0" VerticalAlignment="Center" Source="images/Store_Logo_800.png" Height="278" />

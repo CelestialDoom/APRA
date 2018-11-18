@@ -60,7 +60,6 @@ Public NotInheritable Class MainPage
         ' this event is handled for you.
     End Sub
     Private Async Sub GetStations()
-
         Dim baseAddress = New Uri("http://ponyvillelive.com/api/")
         Dim subAddress As String = "station/list/category/audio"
         Using httpClient = New HttpClient() With {.BaseAddress = baseAddress}
@@ -86,7 +85,8 @@ Public NotInheritable Class MainPage
                             strArrayLogo(a) = TestObject.result.ElementAt(a).image_url
                             ShowStationNames = String.Join(vbCrLf, strArray)
                         Next
-                        Me.Frame.Navigate(GetType(BlankPage1))
+                        ProgRing.IsActive = True
+                        Me.Frame.Navigate(GetType(NewPlayer))
                     Else
                         Application.Current.Exit()
                     End If
@@ -94,7 +94,6 @@ Public NotInheritable Class MainPage
                 End Try
             End Using
         End Using
-
     End Sub
 
     Private Sub MainPage_Loaded(sender As Object, e As RoutedEventArgs) Handles Me.Loaded
@@ -129,6 +128,7 @@ Public NotInheritable Class MainPage
         Else
             StoredTheme = ThemeValue
         End If
+        ProgRing.IsActive = True
         GetStations()
 
     End Sub
